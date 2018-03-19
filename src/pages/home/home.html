@@ -1,14 +1,125 @@
 <ion-header>
-  <ion-navbar>
-    <ion-title>
-      Ionic Blank
-    </ion-title>
-  </ion-navbar>
+	<ion-navbar>
+		<ion-title>
+			Ionic Logging Sample
+		</ion-title>
+	</ion-navbar>
 </ion-header>
 
-<ion-content padding>
-  The world is your oyster.
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
-  </p>
+<ion-content>
+
+	<ion-grid>
+		<ion-row>
+			<ion-col col-12 col-md-6>
+				<ion-card>
+					<ion-card-header>
+						Logging Actions
+					</ion-card-header>
+					<ion-list>
+						<ion-item>
+							<ion-label fixed>Logger</ion-label>
+							<ion-input type="text" [(ngModel)]="testLoggerName" (ionChange)="onLogLevelOrLoggerChanged()"></ion-input>
+						</ion-item>
+						<ion-item>
+							<ion-label fixed>Method</ion-label>
+							<ion-input type="text" [(ngModel)]="testMethod"></ion-input>
+						</ion-item>
+						<ion-item>
+							<ion-label fixed>Log Level</ion-label>
+							<ion-select interface="popover" [(ngModel)]="testLogLevel" (ionChange)="onLogLevelOrLoggerChanged()">
+								<ion-option *ngFor="let logLevel of logLevels" [value]="logLevel">
+									{{ logLevel }}
+								</ion-option>
+							</ion-select>
+						</ion-item>
+						<ion-item>
+							<ion-label fixed class="hasButton">
+								<button ion-button item-content small (click)="logDebug()">
+									DEBUG
+								</button>
+							</ion-label>
+							<ion-input type="text" [(ngModel)]="debugMessage"></ion-input>
+						</ion-item>
+						<ion-item>
+							<ion-label fixed class="hasButton">
+								<button ion-button item-content small (click)="logInfo()">
+									INFO
+								</button>
+							</ion-label>
+							<ion-input type="text" [(ngModel)]="infoMessage"></ion-input>
+						</ion-item>
+						<ion-item>
+							<ion-label fixed class="hasButton">
+								<button ion-button item-content small (click)="logWarn()">
+									WARN
+								</button>
+							</ion-label>
+							<ion-input type="text" [(ngModel)]="warnMessage"></ion-input>
+						</ion-item>
+						<ion-item>
+							<ion-label fixed class="hasButton">
+								<button ion-button item-content small (click)="logError()">
+									ERROR
+								</button>
+							</ion-label>
+							<ion-input type="text" [(ngModel)]="errorMessage"></ion-input>
+						</ion-item>
+						<ion-item>
+							<ion-label fixed class="hasButton">
+								<button ion-button item-content small (click)="logEntry()">
+									ENTRY
+								</button>
+							</ion-label>
+							<ion-input type="text" [(ngModel)]="entryMessage"></ion-input>
+						</ion-item>
+						<ion-item>
+							<ion-label fixed class="hasButton">
+								<button ion-button item-content small (click)="logExit()">
+									EXIT
+								</button>
+							</ion-label>
+							<ion-input type="text" [(ngModel)]="exitMessage"></ion-input>
+						</ion-item>
+					</ion-list>
+				</ion-card>
+				<ion-card>
+					<ion-card-header>
+						Logging Modal
+					</ion-card-header>
+					<ion-list>
+						<button ion-item (click)="openModal()">
+							Open modal
+						</button>
+					</ion-list>
+					<ion-list radio-group>
+						<ion-item *ngFor="let language of languages">
+							<ion-label>{{language}}</ion-label>
+							<ion-radio checked="{{language === selectedLanguage}}" value="{{language}}" (ionSelect)="changeLanguage(language)"></ion-radio>
+						</ion-item>
+					</ion-list>
+					<ion-item *ngIf="selectedLanguage === 'custom'">
+						<ion-label fixed>title</ion-label>
+						<ion-input type="text" [(ngModel)]="translation.title"></ion-input>
+					</ion-item>
+					<ion-item *ngIf="selectedLanguage === 'custom'">
+						<ion-label fixed>cancel</ion-label>
+						<ion-input type="text" [(ngModel)]="translation.cancel"></ion-input>
+					</ion-item>
+					<ion-item *ngIf="selectedLanguage === 'custom'">
+						<ion-label fixed>searchPlaceholder</ion-label>
+						<ion-input type="text" [(ngModel)]="translation.searchPlaceholder"></ion-input>
+					</ion-item>
+				</ion-card>
+			</ion-col>
+			<ion-col col-12 col-md-6>
+				<ion-card>
+					<ion-card-header>
+						Logging Viewer
+					</ion-card-header>
+					<ionic-logging-viewer></ionic-logging-viewer>
+				</ion-card>
+			</ion-col>
+		</ion-row>
+	</ion-grid>
+
 </ion-content>
