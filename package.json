@@ -25,6 +25,7 @@
 		"semantic-release": "semantic-release pre && semantic-release post"
 	},
 	"dependencies": {
+		"@angular/animations": "5.0.3",
 		"@angular/common": "5.0.3",
 		"@angular/compiler": "5.0.3",
 		"@angular/compiler-cli": "5.0.3",
@@ -41,7 +42,7 @@
 		"cordova-plugin-splashscreen": "5.0.2",
 		"ionic-angular": "3.9.2",
 		"ionic-configuration-service": "6.0.0",
-		"ionic-logging-service": "*",
+		"ionic-logging-service": "5.0.0",
 		"ionic-logging-viewer": "*",
 		"ionicons": "3.0.0",
 		"rxjs": "5.5.2",

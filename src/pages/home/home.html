@@ -11,6 +11,7 @@
 	<ion-grid>
 		<ion-row>
 			<ion-col col-12 col-md-6>
+
 				<ion-card>
 					<ion-card-header>
 						Logging Actions
@@ -82,6 +83,39 @@
 						</ion-item>
 					</ion-list>
 				</ion-card>
+
+				<ion-card>
+					<ion-card-header>
+						AjaxAppender
+					</ion-card-header>
+					<ion-list>
+						<ion-item>
+							<ion-label fixed>Enabled</ion-label>
+							<ion-toggle [(ngModel)]="ajaxAppenderEnabled" (ionChange)="onAjaxAppenderConfigChanged()"></ion-toggle>
+						</ion-item>
+						<ion-item *ngIf="ajaxAppenderEnabled">
+							<ion-label fixed>Url</ion-label>
+							<ion-input type="text" [(ngModel)]="ajaxAppenderUrl" (ionChange)="onAjaxAppenderConfigChanged()"></ion-input>
+						</ion-item>
+						<ion-item *ngIf="ajaxAppenderEnabled">
+							<ion-label fixed>Threshold</ion-label>
+							<ion-select interface="popover" [(ngModel)]="ajaxAppenderThreshold" (ionChange)="onAjaxAppenderConfigChanged()">
+								<ion-option *ngFor="let logLevel of logLevels" [value]="logLevel">
+									{{ logLevel }}
+								</ion-option>
+							</ion-select>
+						</ion-item>
+						<ion-item *ngIf="ajaxAppenderEnabled">
+							<ion-label fixed>Batch Size</ion-label>
+							<ion-select interface="popover" [(ngModel)]="ajaxAppenderBatchSize" (ionChange)="onAjaxAppenderConfigChanged()">
+								<ion-option value="1">1</ion-option>
+								<ion-option value="5">5</ion-option>
+								<ion-option value="10">10</ion-option>
+							</ion-select>
+						</ion-item>
+					</ion-list>
+				</ion-card>
+
 				<ion-card>
 					<ion-card-header>
 						Logging Modal
@@ -110,14 +144,18 @@
 						<ion-input type="text" [(ngModel)]="translation.searchPlaceholder"></ion-input>
 					</ion-item>
 				</ion-card>
+
 			</ion-col>
+
 			<ion-col col-12 col-md-6>
+
 				<ion-card>
 					<ion-card-header>
 						Logging Viewer
 					</ion-card-header>
 					<ionic-logging-viewer></ionic-logging-viewer>
 				</ion-card>
+
 			</ion-col>
 		</ion-row>
 	</ion-grid>

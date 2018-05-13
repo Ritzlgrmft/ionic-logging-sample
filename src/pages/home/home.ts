@@ -1,6 +1,6 @@
 import { Component } from "@angular/core";
 
-import { Logger, LoggingService, LogLevel } from "ionic-logging-service";
+import { AjaxAppender, Logger, LoggingService, LogLevel, LogLevelConverter } from "ionic-logging-service";
 import { LoggingViewerModalManager, LoggingViewerTranslation } from "ionic-logging-viewer";
 
 @Component({
@@ -21,6 +21,12 @@ export class HomePage {
 	public fatalMessage: string;
 	public entryMessage: string;
 	public exitMessage: string;
+
+	public ajaxAppenderEnabled: boolean;
+	public ajaxAppenderUrl: string;
+	public ajaxAppenderThreshold: string;
+	public ajaxAppenderBatchSize: number;
+
 	public languages: string[];
 	public selectedLanguage: string;
 	public translation: LoggingViewerTranslation;
@@ -46,15 +52,20 @@ export class HomePage {
 			"ERROR",
 			"OFF",
 		];
-
 		this.debugMessage = "debug message";
 		this.infoMessage = "info message";
 		this.warnMessage = "warn message";
 		this.errorMessage = "error message";
 		this.entryMessage = "entry message";
 		this.exitMessage = "exit message";
-
 		this.onLogLevelOrLoggerChanged();
+
+		const appenders = loggingService.getRootLogger().getInternalLogger().getEffectiveAppenders();
+		const ajaxAppender = appenders.find((a) => a.toString() === "Ionic.Logging.AjaxAppender") as AjaxAppender;
+		this.ajaxAppenderEnabled = (ajaxAppender !== undefined);
+		this.ajaxAppenderUrl = "http://server/path";
+		this.ajaxAppenderThreshold = "WARN";
+		this.ajaxAppenderBatchSize = 1;
 
 		this.languages = ["en", "de", "custom"];
 		this.selectedLanguage = "en";
@@ -94,6 +105,30 @@ export class HomePage {
 				break;
 		}
 		logger.setLogLevel(logLevel);
+
+		this.logger.exit(methodName);
+	}
+
+	public onAjaxAppenderConfigChanged(): void {
+		const methodName = "onLogLevelOrLoggerChanged";
+		this.logger.entry(methodName);
+
+		const appenders = this.loggingService.getRootLogger().getInternalLogger().getEffectiveAppenders();
+		let ajaxAppender = appenders.find((a) => a.toString() === "Ionic.Logging.AjaxAppender") as AjaxAppender;
+		if (ajaxAppender !== undefined) {
+			this.loggingService.getRootLogger().getInternalLogger().removeAppender(ajaxAppender);
+			ajaxAppender = undefined;
+		}
+
+		if (this.ajaxAppenderEnabled) {
+			// add appender
+			ajaxAppender = new AjaxAppender({
+				batchSize: this.ajaxAppenderBatchSize,
+				threshold: this.ajaxAppenderThreshold,
+				url: this.ajaxAppenderUrl,
+			});
+			this.loggingService.getRootLogger().getInternalLogger().addAppender(ajaxAppender);
+		}
 
 		this.logger.exit(methodName);
 	}
