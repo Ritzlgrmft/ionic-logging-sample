@@ -22,7 +22,8 @@
 		"ionic:serve": "ionic-app-scripts serve",
 		"lint": "tslint --project tsconfig.json --format verbose",
 		"test": "npm run lint && npm run ionic:build && npm run ionic:build --prod",
-		"semantic-release": "semantic-release pre && semantic-release post"
+		"semantic-release": "semantic-release",
+		"travis-deploy-once": "travis-deploy-once"
 	},
 	"dependencies": {
 		"@angular/animations": "5.0.3",
@@ -52,7 +53,9 @@
 	"devDependencies": {
 		"@ionic/app-scripts": "3.1.8",
 		"codelyzer": "4.2.1",
-		"typescript": "2.4.2"
+		"typescript": "2.4.2",
+		"travis-deploy-once": "5.0.0",
+		"semantic-release": "15.4.1"
 	},
 	"cordova": {
 		"plugins": {
