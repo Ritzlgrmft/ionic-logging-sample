@@ -70,5 +70,13 @@
 		"commitizen": {
 			"path": "cz-conventional-changelog"
 		}
+	},
+	"release": {
+		"publish": [
+			{
+				"path": "@semantic-release/npm",
+				"npmPublish": false
+			}
+		]
 	}
 }
