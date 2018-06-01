@@ -44,18 +44,18 @@
 		"ionic-angular": "3.9.2",
 		"ionic-configuration-service": "6.0.0",
 		"ionic-logging-service": "5.0.0",
-		"ionic-logging-viewer": "1.0.0",
-		"ionicons": "4.1.1",
+		"ionic-logging-viewer": "1.0.1",
+		"ionicons": "4.1.2",
 		"rxjs": "5.5.2",
 		"sw-toolbox": "3.6.0",
 		"zone.js": "0.8.18"
 	},
 	"devDependencies": {
-		"@ionic/app-scripts": "3.1.8",
-		"codelyzer": "4.2.1",
+		"@ionic/app-scripts": "3.1.9",
+		"codelyzer": "4.3.0",
 		"typescript": "2.4.2",
 		"travis-deploy-once": "5.0.0",
-		"semantic-release": "15.4.1"
+		"semantic-release": "15.5.0"
 	},
 	"cordova": {
 		"plugins": {
