@@ -11,7 +11,8 @@ The logging sample is a small Ionic app demonstrating the usage of
 
 ## Screenshots
 
-tbd
+![Start Page](screenshots/start-page.png) 
+![Logging Modal](screenshots/logging-modal.png)
 
 ## Usage
 
