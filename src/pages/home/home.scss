@@ -1,14 +1,12 @@
 page-home {
-    ion-item {
-        ion-label[fixed] {
-            button {
-                width: 98px;
-                pointer-events: all;
-            }
-        }
-        .hasButton {
-            margin-top: 0;
-            margin-bottom: 0;
-        }
+    .col,
+    .grid,
+    col-4,
+    col-8 {
+        padding: 0;
+    }
+    .button-small-md,
+    .button-small-ios {
+        width: calc(100% - 1em);
     }
 }

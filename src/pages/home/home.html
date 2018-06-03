@@ -18,68 +18,129 @@
 					</ion-card-header>
 					<ion-list>
 						<ion-item>
-							<ion-label fixed>Logger</ion-label>
-							<ion-input type="text" [(ngModel)]="testLoggerName" (ionChange)="onLogLevelOrLoggerChanged()"></ion-input>
+							<ion-grid item-content>
+								<ion-row>
+									<ion-col col-4>
+										<ion-label>Logger</ion-label>
+									</ion-col>
+									<ion-col col-8>
+										<ion-input type="text" [(ngModel)]="testLoggerName" (ionChange)="onLogLevelOrLoggerChanged()"></ion-input>
+									</ion-col>
+								</ion-row>
+							</ion-grid>
 						</ion-item>
 						<ion-item>
-							<ion-label fixed>Method</ion-label>
-							<ion-input type="text" [(ngModel)]="testMethod"></ion-input>
+							<ion-grid item-content>
+								<ion-row>
+									<ion-col col-4>
+										<ion-label fixed>Method</ion-label>
+									</ion-col>
+									<ion-col col-8>
+										<ion-input type="text" [(ngModel)]="testMethod"></ion-input>
+									</ion-col>
+								</ion-row>
+							</ion-grid>
 						</ion-item>
 						<ion-item>
-							<ion-label fixed>Log Level</ion-label>
-							<ion-select interface="popover" [(ngModel)]="testLogLevel" (ionChange)="onLogLevelOrLoggerChanged()">
-								<ion-option *ngFor="let logLevel of logLevels" [value]="logLevel">
-									{{ logLevel }}
-								</ion-option>
-							</ion-select>
+							<ion-grid item-content>
+								<ion-row>
+									<ion-col col-4>
+										<ion-label>Log Level</ion-label>
+									</ion-col>
+									<ion-col col-8>
+										<ion-select interface="popover" [(ngModel)]="testLogLevel" (ionChange)="onLogLevelOrLoggerChanged()">
+											<ion-option *ngFor="let logLevel of logLevels" [value]="logLevel">
+												{{ logLevel }}
+											</ion-option>
+										</ion-select>
+									</ion-col>
+								</ion-row>
+							</ion-grid>
 						</ion-item>
 						<ion-item>
-							<ion-label fixed class="hasButton">
-								<button ion-button item-content small (click)="logDebug()">
-									DEBUG
-								</button>
-							</ion-label>
-							<ion-input type="text" [(ngModel)]="debugMessage"></ion-input>
+							<ion-grid item-content>
+								<ion-row>
+									<ion-col col-4>
+										<button ion-button item-content small (click)="logDebug()">
+											DEBUG
+										</button>
+									</ion-col>
+									<ion-col col-8>
+										<ion-input type="text" [(ngModel)]="debugMessage"></ion-input>
+									</ion-col>
+								</ion-row>
+							</ion-grid>
 						</ion-item>
 						<ion-item>
-							<ion-label fixed class="hasButton">
-								<button ion-button item-content small (click)="logInfo()">
-									INFO
-								</button>
-							</ion-label>
-							<ion-input type="text" [(ngModel)]="infoMessage"></ion-input>
+							<ion-grid item-content>
+								<ion-row>
+									<ion-col col-4>
+										<button ion-button item-content small (click)="logInfo()">
+											INFO
+										</button>
+									</ion-col>
+									<ion-col col-8>
+										<ion-input type="text" [(ngModel)]="infoMessage"></ion-input>
+									</ion-col>
+								</ion-row>
+							</ion-grid>
 						</ion-item>
 						<ion-item>
-							<ion-label fixed class="hasButton">
-								<button ion-button item-content small (click)="logWarn()">
-									WARN
-								</button>
-							</ion-label>
-							<ion-input type="text" [(ngModel)]="warnMessage"></ion-input>
+							<ion-grid item-content>
+								<ion-row>
+									<ion-col col-4>
+										<button ion-button item-content small (click)="logWarn()">
+											WARN
+										</button>
+									</ion-col>
+									<ion-col col-8>
+										<ion-input type="text" [(ngModel)]="warnMessage"></ion-input>
+									</ion-col>
+								</ion-row>
+							</ion-grid>
 						</ion-item>
 						<ion-item>
-							<ion-label fixed class="hasButton">
-								<button ion-button item-content small (click)="logError()">
-									ERROR
-								</button>
-							</ion-label>
-							<ion-input type="text" [(ngModel)]="errorMessage"></ion-input>
+							<ion-grid item-content>
+								<ion-row>
+									<ion-col col-4>
+										<button ion-button item-content small (click)="logError()">
+											ERROR
+										</button>
+									</ion-col>
+									<ion-col col-8>
+										<ion-input type="text" [(ngModel)]="errorMessage"></ion-input>
+									</ion-col>
+								</ion-row>
+							</ion-grid>
 						</ion-item>
 						<ion-item>
-							<ion-label fixed class="hasButton">
-								<button ion-button item-content small (click)="logEntry()">
-									ENTRY
-								</button>
-							</ion-label>
-							<ion-input type="text" [(ngModel)]="entryMessage"></ion-input>
+							<ion-grid item-content>
+								<ion-row>
+									<ion-col col-4>
+										<button ion-button item-content small (click)="logEntry()">
+											ENTRY
+										</button>
+
+									</ion-col>
+									<ion-col col-8>
+										<ion-input type="text" [(ngModel)]="entryMessage"></ion-input>
+									</ion-col>
+								</ion-row>
+							</ion-grid>
 						</ion-item>
 						<ion-item>
-							<ion-label fixed class="hasButton">
-								<button ion-button item-content small (click)="logExit()">
-									EXIT
-								</button>
-							</ion-label>
-							<ion-input type="text" [(ngModel)]="exitMessage"></ion-input>
+							<ion-grid item-content>
+								<ion-row>
+									<ion-col col-4>
+										<button ion-button item-content small (click)="logExit()">
+											EXIT
+										</button>
+									</ion-col>
+									<ion-col col-8>
+										<ion-input type="text" [(ngModel)]="exitMessage"></ion-input>
+									</ion-col>
+								</ion-row>
+							</ion-grid>
 						</ion-item>
 					</ion-list>
 				</ion-card>
