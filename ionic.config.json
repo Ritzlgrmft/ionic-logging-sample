@@ -1,8 +1,7 @@
 {
-	"name": "ionic-logging-sample",
-	"app_id": "",
-	"type": "ionic-angular",
-	"integrations": {
-		"cordova": {}
-	}
+  "name": "ionic-logging-sample",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "ionic-angular"
 }
