@@ -1,82 +1,86 @@
 {
-	"name": "ionic-logging-sample",
-	"version": "0.0.0-development",
-	"description": "Sample for ionic-logging-service and ionic-logging-viewer",
-	"author": {
-		"name": "Markus Wagner",
-		"email": "markus.wagner02@web.de"
-	},
-	"repository": "https://github.com/Ritzlgrmft/ionic-logging-sample.git",
-	"license": "MIT",
-	"private": false,
-	"keywords": [
-		"ionic",
-		"mobile",
-		"logging",
-		"log4javascript"
-	],
-	"scripts": {
-		"clean": "ionic-app-scripts clean",
-		"build": "ionic-app-scripts build",
-		"ionic:build": "ionic-app-scripts build",
-		"ionic:serve": "ionic-app-scripts serve",
-		"lint": "tslint --project tsconfig.json --format verbose",
-		"test": "npm run lint && npm run ionic:build && npm run ionic:build --prod",
-		"semantic-release": "semantic-release",
-		"travis-deploy-once": "travis-deploy-once"
-	},
-	"dependencies": {
-		"@angular/animations": "5.0.3",
-		"@angular/common": "5.0.3",
-		"@angular/compiler": "5.0.3",
-		"@angular/compiler-cli": "5.0.3",
-		"@angular/core": "5.0.3",
-		"@angular/forms": "5.0.3",
-		"@angular/http": "5.0.3",
-		"@angular/platform-browser": "5.0.3",
-		"@angular/platform-browser-dynamic": "5.0.3",
-		"@angular/platform-server": "5.0.3",
-		"@ionic-native/core": "4.7.0",
-		"@ionic-native/splash-screen": "4.7.0",
-		"cordova-ios": "4.5.4",
-		"cordova-plugin-ionic-webview": "1.2.1",
-		"cordova-plugin-splashscreen": "5.0.2",
-		"ionic-angular": "3.9.2",
-		"ionic-configuration-service": "6.0.0",
-		"ionic-logging-service": "5.1.0",
-		"ionic-logging-viewer": "1.0.1",
-		"ionicons": "4.1.2",
-		"rxjs": "5.5.2",
-		"sw-toolbox": "3.6.0",
-		"zone.js": "0.8.26"
-	},
-	"devDependencies": {
-		"@ionic/app-scripts": "3.1.11",
-		"codelyzer": "4.4.3",
-		"typescript": "2.4.2",
-		"travis-deploy-once": "5.0.2",
-		"semantic-release": "15.9.5"
-	},
-	"cordova": {
-		"plugins": {
-			"cordova-plugin-splashscreen": {},
-			"cordova-plugin-ionic-webview": {}
-		},
-		"platforms": [
-			"ios"
-		]
-	},
-	"config": {
-		"commitizen": {
-			"path": "cz-conventional-changelog"
-		}
-	},
-	"release": {
-		"publish": [
-			{
-				"path": "@semantic-release/npm",
-				"npmPublish": false
-			}
-		]
-	}
+  "name": "ionic-logging-sample",
+  "version": "0.0.0-development",
+  "description": "Sample for ionic-logging-service and ionic-logging-viewer",
+  "author": {
+    "name": "Markus Wagner",
+    "email": "markus.wagner02@web.de"
+  },
+  "repository": "https://github.com/Ritzlgrmft/ionic-logging-sample.git",
+  "license": "MIT",
+  "private": false,
+  "keywords": [
+    "ionic",
+    "mobile",
+    "logging",
+    "log4javascript"
+  ],
+  "scripts": {
+    "clean": "ionic-app-scripts clean",
+    "build": "ionic-app-scripts build",
+    "ionic:build": "ionic-app-scripts build",
+    "ionic:serve": "ionic-app-scripts serve",
+    "lint": "tslint --project tsconfig.json --format verbose",
+    "test": "npm run lint && npm run ionic:build && npm run ionic:build --prod",
+    "semantic-release": "semantic-release",
+    "travis-deploy-once": "travis-deploy-once",
+    "snyk-protect": "snyk protect",
+    "prepare": "npm run snyk-protect"
+  },
+  "dependencies": {
+    "@angular/animations": "5.0.3",
+    "@angular/common": "5.0.3",
+    "@angular/compiler": "5.0.3",
+    "@angular/compiler-cli": "5.0.3",
+    "@angular/core": "5.0.3",
+    "@angular/forms": "5.0.3",
+    "@angular/http": "5.0.3",
+    "@angular/platform-browser": "5.0.3",
+    "@angular/platform-browser-dynamic": "5.0.3",
+    "@angular/platform-server": "5.0.3",
+    "@ionic-native/core": "4.7.0",
+    "@ionic-native/splash-screen": "4.7.0",
+    "cordova-ios": "4.5.4",
+    "cordova-plugin-ionic-webview": "1.2.1",
+    "cordova-plugin-splashscreen": "5.0.2",
+    "ionic-angular": "3.9.2",
+    "ionic-configuration-service": "6.0.0",
+    "ionic-logging-service": "5.1.0",
+    "ionic-logging-viewer": "1.0.1",
+    "ionicons": "4.1.2",
+    "rxjs": "5.5.2",
+    "sw-toolbox": "3.6.0",
+    "zone.js": "0.8.26",
+    "snyk": "^1.103.4"
+  },
+  "devDependencies": {
+    "@ionic/app-scripts": "3.1.11",
+    "codelyzer": "4.4.3",
+    "typescript": "2.4.2",
+    "travis-deploy-once": "5.0.2",
+    "semantic-release": "15.9.5"
+  },
+  "cordova": {
+    "plugins": {
+      "cordova-plugin-splashscreen": {},
+      "cordova-plugin-ionic-webview": {}
+    },
+    "platforms": [
+      "ios"
+    ]
+  },
+  "config": {
+    "commitizen": {
+      "path": "cz-conventional-changelog"
+    }
+  },
+  "release": {
+    "publish": [
+      {
+        "path": "@semantic-release/npm",
+        "npmPublish": false
+      }
+    ]
+  },
+  "snyk": true
 }
