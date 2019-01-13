@@ -39,7 +39,7 @@
 		"@ionic-native/core": "4.7.0",
 		"@ionic-native/splash-screen": "4.7.0",
 		"cordova-ios": "4.5.4",
-		"cordova-plugin-ionic-webview": "1.2.1",
+		"cordova-plugin-ionic-webview": "2.2.0",
 		"cordova-plugin-splashscreen": "5.0.2",
 		"ionic-angular": "3.9.2",
 		"ionic-configuration-service": "6.0.0",
